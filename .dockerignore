@@ -2,7 +2,11 @@
 .git
 .gitignore
 
+# Markdown
+*.md
+
 # Docker
+dockerfile
 docker-compose.yml
 .docker
 
