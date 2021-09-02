@@ -1,1 +1,0 @@
-# Deep-Cross-Modal-Projection-Learning-for-Image-Text-Matching
