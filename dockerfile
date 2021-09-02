@@ -6,9 +6,6 @@ ENV WORKSPACE /workspace
 # set working directory
 WORKDIR /workspace
 
-# copy dependencies
-COPY requirements.txt /workspace/
-
 # install dependencies
 RUN yum -y update && \
     yum -y groupinstall 'Development Tools' && \
@@ -24,9 +21,13 @@ RUN yum -y update && \
     ./configure && \
     make && \
     make install && \
-    rm -r ./* 
+    rm -r ./*
 
-RUN pip3 install -r requirements.txt
+# copy dependencies
+COPY requirements.txt /workspace/
+
+RUN pip3 install --upgrade pip && \
+    pip3 install -r requirements.txt
 
 # copy project
 COPY . /workspace/
